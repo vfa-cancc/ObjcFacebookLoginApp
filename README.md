@@ -132,14 +132,6 @@
 * FacebookSDKを使用するための処理を`Appdelegate.m`に記述しています
 
 ```Objc
-//
-//  AppDelegate.m
-//  ObjcFacebookLoginApp
-//
-//  Created by Natsumo Ikeda on 2016/06/07.
-//  Copyright © 2016年 NIFTY Corporation. All rights reserved.
-//
-
 #import "AppDelegate.h"
 #import "NCMB/NCMB.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
