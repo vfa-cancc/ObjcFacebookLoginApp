@@ -15,9 +15,9 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.10(Yosemite)
-* Xcode ver. 7.2.1
-* iPhone6 ver. 8.2
+* Mac OS Mojave
+* Xcode ver. 11.0 
+* iPhone6s(iOS 13.1)
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
