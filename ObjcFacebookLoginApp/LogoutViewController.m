@@ -7,6 +7,8 @@
 //
 
 #import "LogoutViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "NCMB/NCMB.h"
 
 @interface LogoutViewController ()
@@ -24,9 +26,18 @@
 // Logoutボタン押下時の処理
 - (IBAction)logoutBtn:(UIButton *)sender {
     NSLog(@"ログアウトしました");
-    // ログアウト
-    [NCMBUser logOut];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    // 非同期でログアウト
+    [NCMBUser logOutInBackgroundWithBlock:^(NSError *error) {
+        if (error){
+            //エラー処理
+            NSLog(@"Logout error %@", error);
+        } else {
+            // Facebookの認証情報を削除
+            [loginManager logOut];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
     
 }
 
