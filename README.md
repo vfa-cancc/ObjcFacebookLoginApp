@@ -18,6 +18,7 @@
 * Mac OS X 10.15.4 (Catalina)
 * Xcode ver. 11.4.1
 * iPhone8 ver. 13.4.1
+* iOS SDK v3.1.0
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
@@ -73,9 +74,6 @@ pod install
 
 * iOSを選択し、アプリ名（任意）を入力し、「新しいFacebookアプリIDを作成」をクリックします
 * 「連絡先メールアドレス」と「カテゴリ」を入力して「アプリIDを作成」をクリックしてFacebookアプリを作成します
-
-![画像13](/readme-img/013.png)
-
 * 「Quick Start for iOS」の画面が出ます
 * 二番の「バンドルIDを追加する」を「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
 * 「Save」ボタンをクリックします
@@ -216,7 +214,7 @@ pod install
 
 ![画像22](/readme-img/022.png)
 
-* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBFacebookUtilsメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
+* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBUserメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
 * また一度会員登録してしまえば、あとはニフクラ mobile backendの会員管理機能で処理が行えるので自前で会員管理システムを構築する必要がなくより楽に開発を行えます
 
 ### もっと深く知りたい方へ
