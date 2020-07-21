@@ -175,23 +175,58 @@ pod install
 //  LoginViewController.m
 //  ObjcFacebookLoginApp
 //
-
 // Loginボタン押下時の処理
 - (IBAction)FacebookLoginBtn:(UIButton *)sender {
-    [NCMBFacebookUtils logInWithReadPermission:@[@"email"] block:^(NCMBUser *user, NSError *error) {
-        if (error) {
-            if (error.code == NCMBErrorFacebookLoginCancelled) {
-                // Facebookのログインがキャンセルされた場合
-            
-            } else {
-                // その他のエラーが発生した場合
-            
-            }
-        } else {
-            // 会員登録後の処理
-        
-        }
-    }];
+    // labelを空にする
+    self.label.text = @"";
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [self performSegueWithIdentifier:@"login" sender:self];
+    } else {
+        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+        [loginManager logInWithPermissions:@[@"public_profile", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
+           //TODO: process error or result
+           if(error){
+               // その他のエラーが発生した場合
+               NSLog(@"エラーが発生しました:%ld", error.code);
+               self.label.text = [NSString stringWithFormat:@"エラーが発生しました:%ld", error.code];
+           } else {
+               if(result.token.userID != nil){
+                   // mobile backend会員登録するための認証情報を作成
+                   NSDictionary *facebookInfo = @{@"id":result.token.userID,
+                                                  @"access_token":result.token.tokenString,
+                                                  @"expiration_date":result.token.expirationDate};
+
+                   //会員のインスタンスを作成
+                   NCMBUser *user = [NCMBUser user];
+
+                   //Facebookの認証情報を利用して会員登録を行う
+                   [user signUpWithFacebookToken:facebookInfo withBlock:^(NSError *error) {
+                       if (error){
+                           //会員登録に失敗した場合の処理
+                           NSLog(@"Facebookの会員登録とログインに成功しました：%@", user.objectId);
+                       } else {
+                           //会員登録に成功した場合の処理
+                           NSLog(@"Facebookの会員登録とログインに成功しました：%@", user.objectId);
+                           [self performSegueWithIdentifier:@"login" sender:self];
+                       }
+                   }];
+               } else {
+                   if (result.isCancelled) {
+                       // Facebookのログインがキャンセルされた場合
+                       NSLog(@"Facebookのログインがキャンセルされました");
+                       self.label.text = @"Facebookのログインがキャンセルされました";
+                   } else {
+                       // その他のエラーが発生した場合
+                       NSLog(@"エラーが発生しました:%ld", error.code);
+                       self.label.text = [NSString stringWithFormat:@"エラーが発生しました:%ld", error.code];
+                   }
+
+               }
+
+           }
+
+       }];
+    }   
 }
 ```
 
@@ -203,9 +238,20 @@ pod install
 
 // Logoutボタン押下時の処理
 - (IBAction)logoutBtn:(UIButton *)sender {
-    // ログアウト
-    [NCMBUser logOut];
-
+    NSLog(@"ログアウトしました");
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    // 非同期でログアウト
+    [NCMBUser logOutInBackgroundWithBlock:^(NSError *error) {
+        if (error){
+            //エラー処理
+            NSLog(@"Logout error %@", error);
+        } else {
+            // Facebookの認証情報を削除
+            [loginManager logOut];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    
 }
 ```
 
