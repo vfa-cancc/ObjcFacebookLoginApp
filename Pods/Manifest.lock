@@ -1,36 +1,40 @@
 PODS:
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
-  - FBSDKCoreKit (4.10.1):
-    - Bolts (~> 1.5)
-  - FBSDKLoginKit (4.10.1):
-    - FBSDKCoreKit
-  - NCMB (2.3.1)
+  - FBSDKCoreKit (7.0.1):
+    - FBSDKCoreKit/Basics (= 7.0.1)
+    - FBSDKCoreKit/Core (= 7.0.1)
+  - FBSDKCoreKit/Basics (7.0.1)
+  - FBSDKCoreKit/Core (7.0.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (7.0.1):
+    - FBSDKLoginKit/Login (= 7.0.1)
+  - FBSDKLoginKit/Login (7.0.1):
+    - FBSDKCoreKit (~> 7.0.1)
+  - NCMB (3.1.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
-  - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
+  - NCMB (from `https://github.com/NIFCloud-mbaas/ncmb_ios.git`)
+
+SPEC REPOS:
+  trunk:
+    - FBSDKCoreKit
+    - FBSDKLoginKit
 
 EXTERNAL SOURCES:
   NCMB:
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+    :git: https://github.com/NIFCloud-mbaas/ncmb_ios.git
 
 CHECKOUT OPTIONS:
   NCMB:
-    :commit: 0154c77cc0b427f2a03eace58abe7317a05798f0
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+    :commit: 06072ba57e6ef461cafd20feaa798be0eef0cf8b
+    :git: https://github.com/NIFCloud-mbaas/ncmb_ios.git
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
-  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
-  FBSDKLoginKit: 699ff169080e3072de4b9b0faca90bf23dc36deb
-  NCMB: 3decbc3527b85bad06fe1fc3a5cdf93b3bbcd9d9
+  FBSDKCoreKit: 9cc05bec0568a5955c82eb59ae95da0fe125b88d
+  FBSDKLoginKit: ecc6fd43c81b60f5b5e9388d58f137aff4a5d00b
+  NCMB: c308972109137bf523ec1830bac16de6a31c25f4
 
-PODFILE CHECKSUM: 98abc34959d4dc97c9f2d8fd92cedc7c9104c2e5
+PODFILE CHECKSUM: a4117ef3ac4107eec481ed5292b1c764d5c628f1
 
-COCOAPODS: 1.0.0.beta.5
+COCOAPODS: 1.9.1

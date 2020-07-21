@@ -16,6 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #include <stdint.h>
 
 typedef double FBSDKMonotonicTimeSeconds;
@@ -27,8 +31,8 @@ typedef uint64_t FBSDKMachAbsoluteTimeUnits;
  * return current monotonic time in Milliseconds
  * Millisecond precision, uint64_t value.
  * Avoids float/double math operations, thus more efficient than FBSDKMonotonicTimeGetCurrentSeconds.
- * Should be prefered over FBSDKMonotonicTimeGetCurrentSeconds in case millisecond
- * precision is requred.
+ * Should be preferred over FBSDKMonotonicTimeGetCurrentSeconds in case millisecond
+ * precision is required.
  * IMPORTANT: this timer doesn't run while the device is sleeping.
  */
 FBSDKMonotonicTimeMilliseconds FBSDKMonotonicTimeGetCurrentMilliseconds(void);
@@ -36,8 +40,8 @@ FBSDKMonotonicTimeMilliseconds FBSDKMonotonicTimeGetCurrentMilliseconds(void);
 /**
  * return current monotonic time in Seconds
  * Nanosecond precision, double value.
- * Should be prefered over FBSDKMonotonicTimeGetCurrentMilliseconds in case
- * nanosecond precision is requred.
+ * Should be preferred over FBSDKMonotonicTimeGetCurrentMilliseconds in case
+ * nanosecond precision is required.
  * IMPORTANT: this timer doesn't run while the device is sleeping.
  */
 FBSDKMonotonicTimeSeconds FBSDKMonotonicTimeGetCurrentSeconds(void);
@@ -65,3 +69,5 @@ FBSDKMachAbsoluteTimeUnits FBSDKMonotonicTimeConvertSecondsToMachUnits(FBSDKMono
  * this function to compute how many seconds the delta works out to be.
  */
 FBSDKMonotonicTimeSeconds FBSDKMonotonicTimeConvertMachUnitsToSeconds(FBSDKMachAbsoluteTimeUnits machUnits);
+
+#endif

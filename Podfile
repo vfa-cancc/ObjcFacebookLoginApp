@@ -6,6 +6,6 @@ platform :ios, '8.0'
 target 'ObjcFacebookLoginApp' do
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
-    pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
+    pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_ios.git'
 end
 
