@@ -4,7 +4,7 @@
 ## 概要
 * [ニフクラ mobile backend](https://mbaas.nifcloud.com/)の『SNS連携（Facebook連携）』を利用して、Facebookのログイン機能を実装したサンプルプロジェクトです
 * Facebook連携で取得した会員データは[ニフクラ mobile backend](https://mbaas.nifcloud.com/)の『会員管理機能』として扱うことができます
- * [【iOS Objective-C】アプリにログイン機能をつけよう！](https://github.com/natsumo/ObjcLoginApp)も用意していますので、ぜひ活用してください☆
+ * [【iOS Objective-C】アプリにログイン機能をつけよう！](https://github.com/NIFCLOUD-mbaas/ObjcLoginApp)も用意していますので、ぜひ活用してください☆
 * このコンテンツは簡単な操作ですぐに [ニフクラ mobile backend](https://mbaas.nifcloud.com/)の機能を体験いただけます★☆
 
 ## ニフクラ mobile backendって何？？
@@ -265,7 +265,7 @@ pod install
 
 ### もっと深く知りたい方へ
 * 同じ内容の【Swift】版もご用意しています
- * https://github.com/natsumo/SwiftFacebookLoginApp
+ * https://github.com/NIFCLOUD-mbaas/SwiftFacebookLoginApp
 * ニフクラ mobile backend の[ドキュメント（SNS連携：Facebook連携）](https://mbaas.nifcloud.com/doc/current/sns/facebook_ios.html)をSwift版に書き換えたドキュメントをご用意していますので、ご活用ください
  * [SwiftでFacebook連携しよう！](http://qiita.com/natsumo/items/74453049d58d67363c29)
  * [【続】SwiftでFacebook連携しよう！（＜CocoaPods＞でuse_frameworks!を有効にした場合）](http://qiita.com/natsumo/items/74453049d58d67363c29)
