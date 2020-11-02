@@ -15,10 +15,10 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.15.4 (Catalina)
-* Xcode ver. 11.4.1
-* iPhone8 ver. 13.4.1
-* iOS SDK v3.1.0
+* Mac OS 10.15(Catalina)
+* Xcode ver. 12.0
+* Simulator ver.12.0
+* iPhone11 (iOS14.0)
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
